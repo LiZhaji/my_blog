@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>nav</title>
+    <style>
+      .navbar {
+        padding: 50px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        background: wheat;
+      }
+      .outer {
+        text-align: center;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+      .nav {
+        height: 50px;
+      }
+      .nav:hover {
+        color: #6f6fbd;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="outer">
+        <img src="../static/avatar.jpg" alt="avator" />
+        <p>炸鸡</p>
+        <p class="nav">首页</p>
+        <p class="nav">博客</p>
+        <p class="nav">分类</p>
+      </div>
+    </div>
+  </body>
+</html>
