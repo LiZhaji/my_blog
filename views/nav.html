@@ -25,12 +25,20 @@
         height: 100px;
         border-radius: 50%;
       }
-      .nav {
-        height: 50px;
+      .name{
+        margin: 5px 0 40px;
       }
-      .nav:hover {
+      .nav {
+        /* height: 30px; */
+        /* text-align: left; */
+      }
+      .nav>a:hover {
         color: #6f6fbd;
         cursor: pointer;
+      }
+      .nav>a{
+        text-decoration: none;
+        color: black;
       }
     </style>
   </head>
@@ -38,10 +46,12 @@
     <div class="navbar">
       <div class="outer">
         <img src="../static/avatar.jpg" alt="avator" />
-        <p>炸鸡</p>
-        <p class="nav">首页</p>
-        <p class="nav">博客</p>
-        <p class="nav">分类</p>
+        <p class="name">炸鸡</p>
+        <p class="nav"><a href="#">首页</a></p>
+        <p class="nav"><a href="#">博客</a></p>
+        <p class="nav"><a href="#">分类</a></p>
+        <p class="nav"><a href="#">我的</a></p>
+        <p class="nav"><a href="#">链接</a></p>
       </div>
     </div>
   </body>
