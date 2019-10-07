@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>homepage</title>
-  <style>
-  .author,.time{
-    margin-right: 10px;
-    color: #787878;
-  }
-  .content{
-    height: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  </style>
-</head>
-<body>
-  <div class="article">
-    <h2>经验</h2>
-    <p>
-      <span class="author">zhaji</span>
-      <span class="time">创建时间: 2019/10/03 15:22</span>
-      <span class="time">修改时间: 2019/10/03 19:22</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>homepage</title>
+    <style>
+      .author,
+      .time {
+        margin-right: 10px;
+        color: #787878;
+      }
+      .content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 4;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="intros"></div>
+    <script>
+      // const c = requires('../articles/exps.md')
+      // addToHome(c)
+      function addToHome(content) {
+        const intros = document.querySelector("#intros");
+        const infos = content.match(/(?<=---).*(?=---)/g);
+        const title = infos[0].split(": ")[1];
+        const createTime = infos[1].split(": ")[1];
+        const modifyTime = infos[2].split(": ")[1];
+        const author = infos[3].split(": ")[1];
+        const main = content.match(/(?<=---content:).*/)[0].slice(0, 300);
+        const article = `<div class="article">
+    <h2>${title}</h2>
+    <p> 
+      <span class="author">${author}</span>
+      <span class="time">创建时间: ${createTime}</span>
+      <span class="time">修改时间: ${modifyTime}</span>
     </p>
-    <div class="content">大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大大
-        大大大大大
-    </div>
-  </div>
-  <script>
-    function addToHome(content) {
-      const infos = content.match(/(?<=---).*(?=---)/g)
-      const title = infos[0].split(": ")[1]
-      const createTime = infos[1].split(": ")[1]
-      const modifyTime = infos[2].split(": ")[1]
-      const author = infos[3].split(": ")[1]
-
-    }
-  </script>
-</body>
-
+    <div class="content">${main}</div>
+  </div>`;
+        intros.innerHTML += article;
+      }
+    </script>
+  </body>
 </html>
